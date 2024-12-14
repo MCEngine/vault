@@ -17,9 +17,14 @@ public class MCEngineVaultApiHeadUtil {
      * Retrieve a head item from HeadDatabase plugin; fallback to a plain PLAYER_HEAD if unavailable.
      */
     public static ItemStack getHeadItem(String headId) {
+        // Check if the HeadDatabase plugin is enabled
+        if (!Bukkit.getPluginManager().isPluginEnabled("HeadDatabase")) {
+            return new ItemStack(Material.PLAYER_HEAD); // fallback
+        }
+
         // Attempt to get the HeadDatabaseAPI
         HeadDatabaseAPI headDatabaseAPI = (HeadDatabaseAPI) Bukkit.getPluginManager().getPlugin("HeadDatabase");
-        if (headDatabaseAPI == null || !headDatabaseAPI.isEnabled()) {
+        if (headDatabaseAPI == null) {
             return new ItemStack(Material.PLAYER_HEAD); // fallback
         }
 
