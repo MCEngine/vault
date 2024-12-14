@@ -28,9 +28,9 @@ public class MCEngineVaultApiInventoryManager {
         Inventory vault = Bukkit.createInventory(null, size, ChatColor.BLUE + "Vault - Locked");
 
         // Create a head item from HeadDatabase or fallback
-        ItemStack headItem = HeadUtils.getHeadItem(headId);
+        ItemStack headItem = MCEngineVaultApiHeadUtil.getHeadItem(headId);
         // Store the password in the head’s NBT
-        headItem = HeadUtils.storePasswordInItem(headItem, plugin, password);
+        headItem = MCEngineVaultApiHeadUtil.storePasswordInItem(headItem, plugin, password);
 
         vault.setItem(0, headItem);
 
