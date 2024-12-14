@@ -1,0 +1,4 @@
+rootProject.name = 'mcengine-vault'
+
+include 'mcengine-vault-api'
+include 'spigotmc'
