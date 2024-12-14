@@ -4,3 +4,4 @@ main: io.github.mcengine.MCEngineVault
 author: MCEngine
 description: MCEngine Vault
 api-version: 1.18
+depend: [HeadDatabase]
