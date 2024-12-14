@@ -13,9 +13,12 @@ public class MCEngineVaultApiEncryptionUtil {
      * Encrypts the given plaintext using AES and returns a Base64-encoded string.
      */
     public static String encrypt(String plaintext) {
+        if (SECRET_KEY == null || SECRET_KEY.length() != 16) {
+            throw new IllegalStateException("Invalid or missing SECRET_KEY. Must be exactly 16 characters.");
+        }
         try {
             SecretKeySpec secretKey = new SecretKeySpec(SECRET_KEY.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
             cipher.init(Cipher.ENCRYPT_MODE, secretKey);
             byte[] encryptedBytes = cipher.doFinal(plaintext.getBytes());
             return Base64.getEncoder().encodeToString(encryptedBytes);
