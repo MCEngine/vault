@@ -1,0 +1,6 @@
+settings:
+  cipher: 'AES/CBC/PKCS5Padding'
+  iteration_count: 65536
+  key_size: 256
+  secret_key: 'secretkey'
+  salt: 'salt'
